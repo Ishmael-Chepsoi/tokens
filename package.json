@@ -17,9 +17,18 @@
     "generate": "dfx generate tokens_backend"
   },
   "dependencies": {
-    "@dfinity/agent": "^0.19.3",
-    "@dfinity/candid": "^0.19.3",
-    "@dfinity/principal": "^0.19.3"
+    "@dfinity/agent": "^0.10.4",
+    "@dfinity/candid": "^0.10.4",
+    "@dfinity/principal": "^0.10.4",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-scripts": "5.0.0",
+    "@dfinity/auth-client": "^0.10.4",
+    "@dfinity/authentication": "^0.10.4",
+    "@dfinity/identity": "^0.10.4",
+    "lit-html": "^1.4.1",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "assert": "2.0.0",
