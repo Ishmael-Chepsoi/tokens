@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Principal } from "../../../../node_modules/@dfinity/principal/lib/cjs/index";
+// import { Principal } from "../../../../node_modules/@dfinity/candid/lib/cjs/idl";
 import { tokens_backend } from "../../../declarations/tokens_backend";
 
 

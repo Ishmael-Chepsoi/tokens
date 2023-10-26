@@ -1,5 +1,6 @@
-import React, {useState} from "react";
-import { tokens_backend } from "../../../declarations/tokens_backend/index";
+import React, { useState } from "react";
+import { tokens_backend } from "../../../declarations/tokens_backend";
+
 
 function Faucet() {
 const [isDisabled, setDisabled] = useState(false);
