@@ -1,13 +1,26 @@
 import React, { useState } from "react";
-import { tokens_backend } from "../../../declarations/tokens_backend";
+import { tokens_backend, canisterId, createActor } from "../../../declarations/tokens_backend";
+import { AuthClient } from "../../../../node_modules/@dfinity/auth-client/lib/cjs/index";
 
 
-function Faucet() {
+
+function Faucet(props) {
 const [isDisabled, setDisabled] = useState(false);
+
 const [buttonText, setText] = useState("Gimme gimme")
   async function handleClick(event) {
     setDisabled(true);
-    const result = await tokens_backend.payOut();
+
+    const authClient = await AuthClient.create();//authentication client
+    const identity = await authClient.getIdentity();//used to get the identity
+
+    const authenticatedCanister = createActor(canisterId,{
+      agentOptions:{
+        identity,
+      },
+    });
+
+    const result = await authenticatedCanister.payOut();
     setText(result)
     // setDisabled(false);
   }
@@ -20,7 +33,7 @@ const [buttonText, setText] = useState("Gimme gimme")
         </span>
         Faucet
       </h2>
-      <label>Get your free Dishmael tokens here! Claim 10,000 DANG coins to your account.</label>
+      <label>Get your free Dishmael tokens here! Claim 10,000 DANG coins to {props.userPrincipal} account.</label> 
       <p className="trade-buttons">
         <button 
         id="btn-payout" 
